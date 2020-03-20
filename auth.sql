@@ -43,7 +43,7 @@ CREATE TABLE `user` (
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `user`, `password`, `date`, `country`, `email`, `birthday`, `salt`) VALUES
+INSERT INTO `user` (`id`, `user`, `password`, `date`, id_country, `email`, `birthday`, `salt`) VALUES
 (1, 'user', '12345', NULL, NULL, NULL, NULL, NULL),
 (2, 'admin', '123', NULL, NULL, NULL, NULL, NULL),
 (3, 'kaka', 'b1dd63074d084744f2e66e506226fc84', '22:43:22', 'Belarus', 'kandj87@mail.ru', '20.10.1987', NULL),

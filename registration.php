@@ -55,7 +55,7 @@ if(empty($_SESSION['auth'])) {
                                 var_dump($_REQUEST);
                                 //запись в БД
                                 $query = "INSERT INTO user SET user = '$login',password = '$password', birthday = '$birthday',
-date = NOW() ,email = '$email',country = '$country'/*,salt = '$salt'*/ ";
+date = NOW() ,email = '$email',id_country = '$country'/*,salt = '$salt'*/ ";
                                 mysqli_query($connect, $query) or die(mysqli_error($connect));
 
                                 //немедленная авторизация
@@ -118,12 +118,9 @@ $content .= $isEmail;
 $content .= "<input type=\"text\" name=\"email\"> email<br><br>";
 $content .= $isDate;
 $content .= "<input type=\"text\" name=\"birthday\"> birthday<br><br>";
-$content .= "<select name=\"country\">";
-$arr = ['Belarus','Russia','Poland'];
-foreach ($arr as $item) {
-    $content .= "<option>$item</option>";
-}
-$content .= "</select><br><br><input type=\"submit\" ><br></form>";
+include "folder/select.php ";
+$content .= selectCountry($connect);
+$content .= "<input type=\"submit\" ><br></form>";
 
 include "folder/layout.php";
 ?>
