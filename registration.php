@@ -55,7 +55,7 @@ if(empty($_SESSION['auth'])) {
                                 var_dump($_REQUEST);
                                 //запись в БД
                                 $query = "INSERT INTO user SET user = '$login',password = '$password', birthday = '$birthday',
-date = NOW() ,email = '$email',id_country = '$country'/*,salt = '$salt'*/ ";
+date = NOW() ,email = '$email',id_country = '$country',id_status = 1 /*,salt = '$salt'*/ ";
                                 mysqli_query($connect, $query) or die(mysqli_error($connect));
 
                                 //немедленная авторизация
@@ -63,7 +63,8 @@ date = NOW() ,email = '$email',id_country = '$country'/*,salt = '$salt'*/ ";
                                 //запрос на ид и запись в сессию
                                 $id = mysqli_insert_id($connect);
                                 $_SESSION['id'] = $id;
-
+                                //статус юзер
+                                $_SESSION['status'] = 1;
                                 //header('Location:auth/');
 
                             } else {

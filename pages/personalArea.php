@@ -32,6 +32,7 @@ if ($_SESSION['auth']) {
         $content .= "<input type=\"text\" value=\"{$user['birthday']}\" name=\"birthday\" >Дата рождения<br>";
         include "../folder/select.php";
         $content .= selectCountry($connect);
+        $content .= "<a href=\"delete.php?id_user=$id\">Удалить аккаунт</a><br>";
         $content .= "<input type=\"submit\" value=\"Редактировать\">";
         $content .= "</form>";
 

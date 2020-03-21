@@ -23,6 +23,8 @@ if (!empty($_POST['login']) and !empty($_POST['password'])) {
 
             $_SESSION['auth'] = true;
             $_SESSION['id'] = $user['id'];
+            //статус админ или юзер
+            $_SESSION['status'] = $user['id_status'];
 
         } else {
             echo "Wrong login or password";

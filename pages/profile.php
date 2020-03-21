@@ -10,7 +10,8 @@ $query = "SELECT user,date,birthday,country.name FROM user LEFT JOIN country ON 
 $data = mysqli_query($connect, $query) or die(mysqli_error($connect));
 $user = mysqli_fetch_assoc($data);
 
-    if(!$user) {
+
+    if($user) {
         $age = $user['birthday'];
         
         $content = '';
